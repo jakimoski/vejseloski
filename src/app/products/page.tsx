@@ -1,5 +1,5 @@
 async function getProducts() {
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch("https://vejseloski.vercel.app/api/products", {
     cache: "no-store",
   });
 
