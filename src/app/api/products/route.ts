@@ -1,34 +1,37 @@
-// src/app/api/products/route.js
+import pool from "@/app/utils/db";
+import { NextRequest, NextResponse } from "next/server";
 
-import mysql from "mysql2/promise";
-
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const connection = await mysql.createConnection({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-    });
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get("page") || "1");
+    const search = searchParams.get("search") || "";
 
-    const [rows] = await connection.execute("SELECT * FROM articles"); // Example query
-    await connection.end();
+    const limit = 100;
+    const offset = (page - 1) * limit;
 
-    return new Response(JSON.stringify({ success: true, data: rows }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    let query = "SELECT * FROM articles";
+    const params = [];
+
+    if (search) {
+      query += " WHERE name LIKE ? OR code LIKE ?";
+      params.push(`%${search}%`, `%${search}%`);
+    }
+
+    query += " LIMIT ? OFFSET ?";
+    params.push(limit, offset);
+
+    const [rows] = await pool.execute(query, params);
+
+    return NextResponse.json({ success: true, data: rows });
   } catch (error) {
     console.error("Database error:", error);
-    return new Response(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         success: false,
         error: error instanceof Error ? error.message : "Unknown error",
-      }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      }
+      },
+      { status: 500 }
     );
   }
 }

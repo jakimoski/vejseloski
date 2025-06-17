@@ -13,3 +13,11 @@ export type TtextHoverProps = {
   titile1: string;
   titile2: string;
 };
+
+export type Product = {
+  id: number;
+  name: string;
+  code: string;
+  price_out: string;
+  tax_out: string;
+};
