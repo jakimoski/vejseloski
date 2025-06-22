@@ -18,10 +18,9 @@ export const metadata: Metadata = {
   description: "Zelezara Vejseloski",
 };
 
-export const exo2 = Exo_2({
+const exo2 = Exo_2({
   variable: "--font-exo-2",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export default function RootLayout({
