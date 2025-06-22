@@ -46,7 +46,9 @@ export default function Navbar() {
       >
         <div className="w-[50%]">
           <Link href={"/"}>
-            <span className="uppercase font-bold text-2xl">Vejseloski</span>
+            <span className="uppercase title font-bold text-3xl">
+              Vejseloski
+            </span>
           </Link>
         </div>
         <div className="flex gap-x-[20px] w-[50%]">

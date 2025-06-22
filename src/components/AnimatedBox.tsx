@@ -4,14 +4,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image, { type StaticImageData } from "next/image";
-import { type ReactNode, useRef } from "react";
+import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export type GridCardProps = {
   image?: StaticImageData;
   heading: string;
-  description: ReactNode;
 };
 
 type Props = {
@@ -110,17 +109,6 @@ export default function AnimatedBox({ className, cards = [] }: Props) {
               ease: "power2.out",
             },
             "-=0.3"
-          )
-          .fromTo(
-            "p",
-            { opacity: 0, y: 12 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.4,
-              ease: "power2.out",
-            },
-            "-=0.3"
           );
       });
     },
@@ -130,8 +118,7 @@ export default function AnimatedBox({ className, cards = [] }: Props) {
   return (
     <section
       ref={container}
-      // Merge the base classes, grid classes and optional className prop
-      className={`relative grid w-full grid-cols-1 gap-6 px-14 py-10 text-white ${
+      className={`relative grid w-full grid-cols-1 mt-16 gap-6 px-4 md:px-14 md:py-6 py-4 text-white ${
         cards.length === 3
           ? "grid-cols-1 md:grid-cols-3"
           : cards.length === 4
@@ -140,19 +127,16 @@ export default function AnimatedBox({ className, cards = [] }: Props) {
       } ${className}`}
     >
       {cards.map((item, index) => (
-        // The 'card' class is used as a selector in the animation
-        // 'opacity-0' ensures the card is invisible until animated in
         <div
           key={index}
-          className="card space-y-3 rounded-xl bg-white/5 p-6 opacity-0 shadow-2xl"
+          className="card rounded-xl bg-white/5 p-4 pb-12 opacity-0 shadow-2xl"
         >
           {item.image && (
-            <Image src={item.image} alt={item.heading} className="h-20" />
+            <Image src={item.image} alt={item.heading} className="h-full" />
           )}
-          <h5 className="text-sm font-semibold uppercase tracking-wide">
+          <h5 className="text-2xl mt-2 font-semibold text-black text-center uppercase ">
             {item.heading}
           </h5>
-          <p className="text-base text-white/60">{item.description}</p>
         </div>
       ))}
     </section>

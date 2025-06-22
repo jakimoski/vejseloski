@@ -2,14 +2,8 @@
 
 import { useEffect, useState, useMemo } from "react";
 import debounce from "lodash/debounce";
+import { Product } from "@/types/types";
 
-type Product = {
-  id: number;
-  name: string;
-  code: string;
-  price_out: string;
-  tax_out: string;
-};
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);

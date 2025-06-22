@@ -21,10 +21,10 @@ const navbarItems = [
 export default function MobileNav() {
   const [toggle, setToggle] = useState(false);
   return (
-    <>
+    <nav className="px-4">
       <div className="w-full flex justify-between items-center h-[8vh] padding-x sm:hidden xm:hidden md:hidden">
         <Link href={"/"}>
-          <span>Vejseloski</span>
+          <span className="title uppercase">Vejseloski</span>
         </Link>
         <HiOutlineMenuAlt4
           onClick={() => setToggle(true)}
@@ -38,24 +38,24 @@ export default function MobileNav() {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 1, ease: [0.3, 0.86, 0.36, 0.95] }}
-            className="fixed top-0 bottom-0 right-0 z-50 w-full min-h-screen flex justify-end items-end flex-col bg-white text-black"
+            className="fixed px-4 top-0 bottom-0 right-0 z-50 w-full min-h-screen flex justify-end items-end flex-col bg-white text-black"
           >
             <div className="w-full flex justify-between items-center h-[8vh] border-b border-[#f1f1f155] padding-x">
               <Link href={"/"}>
-                <span>Vejseloski</span>
+                <span className="title uppercase">Vejseloski</span>
               </Link>
               <IoMdClose
                 onClick={() => setToggle(false)}
                 className="text-3xl cursor-pointer text-background"
               />
             </div>
-            <ul className="h-full w-full flex justify-center text-left flex-col gap-[10px] padding-x">
+            <ul className="h-full w-full flex mt-6 text-left flex-col gap-[10px] ">
               {navbarItems.map((item) => (
                 <Link
                   href={item.href}
                   key={item.id}
                   onClick={(toggle) => setToggle(!toggle)}
-                  className="text-[80px] leading-[67px] font-FoundersGrotesk uppercase font-bold tracking-[-.9] text-background"
+                  className="text-[20px] w-full  hover:backdrop-brightness-80 p-6 font-FoundersGrotesk uppercase font-bold tracking-[-.9] text-background"
                 >
                   {item.title}
                 </Link>
@@ -64,6 +64,6 @@ export default function MobileNav() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </nav>
   );
 }
