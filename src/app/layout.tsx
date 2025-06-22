@@ -13,15 +13,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Zelezara Vejseloski",
-  description: "Zelezara Vejseloski",
-};
-
 const exo2 = Exo_2({
   variable: "--font-exo-2",
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  title: "Zelezara Vejseloski",
+  description:
+    "Explore our premium collection of hardware and metal materials.",
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+  },
+  openGraph: {
+    title: "Zelezara Vejseloski",
+    description: "Hardware & Metal Store",
+    url: "https://vejseloski.vercel.app",
+    siteName: "Zelezara Vejseloski",
+    type: "website",
+  },
+};
 
 export default function RootLayout({
   children,
