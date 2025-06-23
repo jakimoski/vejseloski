@@ -132,7 +132,11 @@ export default function AnimatedBox({ className, cards = [] }: Props) {
           className="card rounded-xl bg-white/5 p-4 pb-12 opacity-0 shadow-2xl"
         >
           {item.image && (
-            <Image src={item.image} alt={item.heading} className="h-full" />
+            <Image
+              src={item.image}
+              alt={item.heading}
+              className="h-full aspect-[940/788] object-cover"
+            />
           )}
           <h5 className="text-2xl mt-2 font-semibold text-black text-center uppercase ">
             {item.heading}

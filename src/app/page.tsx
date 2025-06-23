@@ -17,9 +17,8 @@ export default function Home() {
     <main>
       <Hero />
       <AnimatedGridPage />
+      <Marquee />
       <About />
-      <Marquee title="About" className="px-4" />
-      <div className="h-[100vh]"></div>
     </main>
   );
 }

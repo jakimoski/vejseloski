@@ -4,7 +4,6 @@ import { useEffect, useState, useMemo } from "react";
 import debounce from "lodash/debounce";
 import { Product } from "@/types/types";
 
-
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [page, setPage] = useState(1);
@@ -43,15 +42,17 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">📦 Products</h1>
+    <section className="p-6">
+      <h1 className="text-4xl text-center font-bold my-4 md:my-20">
+        📦 Продукти
+      </h1>
 
       <input
         type="text"
-        placeholder="Search by name or code..."
+        placeholder="Барај..."
         value={searchInput}
         onChange={handleSearchChange}
-        className="w-full md:w-1/2 p-2 mb-6 border rounded-md"
+        className="w-full m-auto block md:w-1/2 p-2 mb-6 border rounded-md"
       />
 
       {loading ? (
@@ -67,7 +68,7 @@ export default function ProductsPage() {
                   key={product.id}
                   className="border rounded-xl p-4 shadow-sm hover:shadow-md transition"
                 >
-                  <h2 className="text-xl font-semibold">{product.name}</h2>
+                  <h3 className="text-xl font-semibold">{product.name}</h3>
 
                   <p>
                     <span className="font-medium">Цена:</span>{" "}
@@ -90,7 +91,7 @@ export default function ProductsPage() {
             >
               ⬅ Предходна
             </button>
-            <span className="self-center font-semibold">Страница {page}</span>
+            <span className="self-center font-semibold">Странa {page}</span>
             <button
               onClick={() => setPage((p) => p + 1)}
               disabled={products.length < 100}
@@ -101,6 +102,6 @@ export default function ProductsPage() {
           </div>
         </>
       )}
-    </div>
+    </section>
   );
 }
