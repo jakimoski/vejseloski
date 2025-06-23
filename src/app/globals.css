@@ -23,6 +23,18 @@ h2 {
   font-family: var(--font-exo-2);
 }
 
+.hero-text {
+  color: #fff;
+  font-family: var(--font-exo-2);
+  font-size: 9vw;
+  letter-spacing: -2px;
+  font-family: "Luckiest Guy";
+  text-shadow: 1px 1px 0px #166bb3, 2px 2px 0px #166bb3, 3px 3px 0px #166bb3,
+    4px 4px 0px #166bb3, 5px 5px 0px #166bb3, 6px 6px 0px #166bb3,
+    7px 7px 0px #072f50, 8px 8px 0px #072f50, 9px 9px 0px #072f50,
+    10px 10px 0px #072f50, 11px 11px 0px #072f50, 12px 12px 0px #072f50;
+}
+
 .hover {
   color: #18272f;
   position: relative;
