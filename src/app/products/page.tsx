@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from "react";
 import debounce from "lodash/debounce";
 import { Product } from "@/types/types";
+import Loading from "@/components/Loading";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -56,14 +57,16 @@ export default function ProductsPage() {
       />
 
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <>
-          {products.length === 0 ? (
-            <p className="text-gray-500">No products found.</p>
+          {products?.length === 0 || !products ? (
+            <p className="text-2xl text-center p-6">
+              Не се пронајдени производи.
+            </p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {products.map((product) => (
+              {products?.map((product) => (
                 <div
                   key={product.id}
                   className="border rounded-xl p-4 shadow-sm hover:shadow-md transition"
@@ -72,7 +75,7 @@ export default function ProductsPage() {
 
                   <p>
                     <span className="font-medium">Цена:</span>{" "}
-                    {parseFloat(product.price_out).toFixed(2)} ден
+                    {parseFloat(product?.price_out).toFixed(2)} ден
                   </p>
                   <p>
                     <span className="font-medium">ДДВ:</span> {product.tax_out}%
@@ -94,7 +97,7 @@ export default function ProductsPage() {
             <span className="self-center font-semibold">Странa {page}</span>
             <button
               onClick={() => setPage((p) => p + 1)}
-              disabled={products.length < 100}
+              disabled={products?.length < 100}
               className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               Следна ➡

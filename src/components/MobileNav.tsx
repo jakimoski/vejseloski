@@ -16,6 +16,11 @@ const navbarItems = [
     title: "Продукти",
     href: "products",
   },
+  {
+    id: 3,
+    title: "Галерија",
+    href: "galerija",
+  },
 ];
 
 export default function MobileNav() {

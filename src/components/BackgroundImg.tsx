@@ -14,7 +14,7 @@ export default function BackgroundImg({
           src={src}
           alt="img"
           priority={hero}
-          className="w-full h-screen object-cover"
+          className="w-full h-screen object-cover object-center"
         />
       </div>
     </div>
