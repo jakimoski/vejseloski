@@ -13,7 +13,7 @@ export default function Gallery() {
              grid-cols-1 md:grid-cols-3"
     >
       {images &&
-        images.map((image, index) => (
+        images?.map((image, index) => (
           <div
             key={index}
             className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"

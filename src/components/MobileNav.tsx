@@ -57,12 +57,12 @@ export default function MobileNav() {
             <ul className="h-full w-full flex mt-6 text-left flex-col gap-[10px] ">
               {navbarItems.map((item) => (
                 <Link
-                  href={item.href}
-                  key={item.id}
+                  href={item?.href}
+                  key={item?.id}
                   onClick={(toggle) => setToggle(!toggle)}
                   className="text-[20px] w-full  hover:backdrop-brightness-80 p-6 font-FoundersGrotesk uppercase font-bold tracking-[-.9] text-background"
                 >
-                  {item.title}
+                  {item?.title}
                 </Link>
               ))}
             </ul>

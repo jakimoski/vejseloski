@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function TextMask({ children }: { children: string[] }) {
   return (
     <div>
-      {children.map((phrase, index) => (
+      {children?.map((phrase, index) => (
         <div key={index} className="overflow-hidden">
           <motion.h1
             custom={index}

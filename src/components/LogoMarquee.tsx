@@ -63,7 +63,7 @@ export default function LogoMarquee({
         style={{ x }}
       >
         {logosToRender &&
-          logosToRender.map((logo, index) => (
+          logosToRender?.map((logo, index) => (
             <Image
               key={index}
               src={logo}

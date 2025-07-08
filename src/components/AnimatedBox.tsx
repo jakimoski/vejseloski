@@ -119,9 +119,9 @@ export default function AnimatedBox({ className, cards = [] }: Props) {
     <section
       ref={container}
       className={`relative grid w-full grid-cols-1 mt-16 gap-6 px-4 md:px-14 md:py-6 py-4 text-white ${
-        cards.length === 3
+        cards?.length === 3
           ? "grid-cols-1 md:grid-cols-3"
-          : cards.length === 4
+          : cards?.length === 4
           ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
           : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
       } ${className}`}
@@ -131,15 +131,15 @@ export default function AnimatedBox({ className, cards = [] }: Props) {
           key={index}
           className="card rounded-xl bg-white/5 p-4 pb-12 opacity-0 shadow-2xl"
         >
-          {item.image && (
+          {item?.image && (
             <Image
-              src={item.image}
-              alt={item.heading}
+              src={item?.image}
+              alt={item?.heading}
               className="h-full aspect-[940/788] object-cover"
             />
           )}
           <h5 className="text-2xl mt-2 font-semibold text-black text-center uppercase ">
-            {item.heading}
+            {item?.heading}
           </h5>
         </div>
       ))}

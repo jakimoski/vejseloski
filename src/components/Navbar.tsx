@@ -59,13 +59,13 @@ export default function Navbar() {
         <div className="flex gap-x-[20px] w-[50%]">
           {navbarItems.map((item) => (
             <Link
-              key={item.id}
+              key={item?.id}
               className={`w-fit paragraph font-medium text-lg capitalize flex flex-col hover ${
-                item.id === 5 && "ml-auto"
+                item?.id === 5 && "ml-auto"
               }`}
-              href={item.href}
+              href={item?.href}
             >
-              <TextHover titile1={item.title} titile2={item.title} />
+              <TextHover titile1={item?.title} titile2={item?.title} />
             </Link>
           ))}
         </div>
